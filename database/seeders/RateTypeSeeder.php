@@ -13,7 +13,7 @@ class RateTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        if(DB::table('_rate_type')->count() > 0){
+        if(DB::table('rate_type')->count() > 0){
             return;
         }
 
@@ -23,7 +23,7 @@ class RateTypeSeeder extends Seeder
         ];
 
         foreach ($rateTypes as $type) {
-            DB::table('_rate_type')->insert([
+            DB::table('rate_type')->insert([
                 'name' => $type['name'],
                 'is_active' => $type['is_active'],
                 'created_at' => now(),

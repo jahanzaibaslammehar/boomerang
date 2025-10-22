@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(VehicleTypeSeeder::class);
         $this->call(RateTypeSeeder::class);
+        $this->call(LenderFundingRequirementSeeer::class);
+        $this->call(LenderPayoffRequirementSeeder::class);
     }
 }

@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rate_type', function (Blueprint $table) {
+        Schema::create('lenders', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->boolean('is_active')->default(true);
-            $table->timestamps();
+            $table->string('name');
+            $table->string('phone');
+            $table->string('address');
+            $table->string('payoff_address');
+            $table->string('payoff_delivery_method');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rate_type');
+        Schema::dropIfExists('lenders');
     }
 };
