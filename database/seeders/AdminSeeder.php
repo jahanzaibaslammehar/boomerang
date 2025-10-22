@@ -14,6 +14,11 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
+
+        if(User::where('email', 'admin@boomerang.com')->exists()) {
+            return;
+        }
+
         User::create([
             'name' => 'Admin',
             'email' => 'admin@boomerang.com',
