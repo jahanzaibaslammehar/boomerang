@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\LenderPayoffDeliveryMethods;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -20,7 +21,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminSeeder::class);
         $this->call(VehicleTypeSeeder::class);
         $this->call(RateTypeSeeder::class);
-        $this->call(LenderFundingRequirementSeeer::class);
+        $this->call(LenderFundingRequirementSeeder::class);
         $this->call(LenderPayoffRequirementSeeder::class);
+        $this->call(LenderPayoffDeliveryMethodSeeder::class);
+
+        
     }
 }
