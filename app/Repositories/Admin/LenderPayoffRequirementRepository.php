@@ -4,10 +4,11 @@ namespace App\Repositories\Admin;
 
 use App\Models\RateType;
 use App\Core\Repositories\AbstractRepository;
+use App\Models\LenderPayoffRequirement;
 
-class RateTypeRepository extends AbstractRepository
+class LenderPayoffRequirementRepository extends AbstractRepository
 {
-    public function __construct(RateType $model)
+    public function __construct(LenderPayoffRequirement $model)
     {
         $this->model = $model;
     }

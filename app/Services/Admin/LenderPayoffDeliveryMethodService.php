@@ -2,11 +2,14 @@
 
 namespace App\Services\Admin;
 
-class LenderPayoffDeliveryMethodService
+use App\Core\Services\AbstractService;
+use App\Repositories\Admin\LenderPayoffDeliveryMethodRepository;
+
+class LenderPayoffDeliveryMethodService extends AbstractService
 {
-    public function __construct()
+    public function __construct(LenderPayoffDeliveryMethodRepository $repository)
     {
-        //
+        $this->repository = $repository;
     }
 
 }
