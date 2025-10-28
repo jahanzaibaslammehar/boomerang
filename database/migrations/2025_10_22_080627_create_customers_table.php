@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('vehicle')->nullable();
             $table->float('total_finance_amount')->default(0);
             $table->unsignedBigInteger('finance_manager');
+            $table->unsignedBigInteger('sales_manager');
+            $table->unsignedBigInteger('sales_person_1');
+            $table->unsignedBigInteger('sales_person_2');
 
             //vehicle details
             $table->boolean('tax_credit')->default(true);
