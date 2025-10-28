@@ -13,6 +13,7 @@ class Lender extends Model
         'address',
         'payoff_address',
         'payoff_delivery_method',
+        'location_id',
     ];
     //
 }

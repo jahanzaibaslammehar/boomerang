@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lenders', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('group_location_id');
             $table->string('name');
             $table->string('phone');
-            $table->string('address');
-            $table->string('payoff_address');
-            $table->unsignedBigInteger('payoff_delivery_method');
-            $table->unsignedBigInteger('location_id')->nullable();
+            $table->string('email');
+            $table->string('fax');
+            $table->unsignedBigInteger('contact_person_id');
+            $table->json('integrations');
+            $table->boolean('is_notification_enabled')->default(false);
+            $table->boolean('is_active')->default(false);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lenders');
+        Schema::dropIfExists('locations');
     }
 };
