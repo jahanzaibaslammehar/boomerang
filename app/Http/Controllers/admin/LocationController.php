@@ -14,6 +14,15 @@ class LocationController extends Controller
     {
     }
 
+    public function index()
+    {
+        $locations = $this->service->list();
+        return response()->json([
+            'message' => 'Locations retrieved successfully',
+            'data' => $locations
+        ], 200);
+    }
+
     public function store(CreateLocationRequest $request)
     {
         $location = $this->service->create($request->validated());

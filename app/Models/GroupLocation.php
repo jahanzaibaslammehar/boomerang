@@ -10,9 +10,9 @@ class GroupLocation extends Model
 
     protected $fillable = [
         'name',
-        'contact_person__name',
-        'contact_person__phone',
-        'contact_person__email',
+        'contact_person_name',
+        'contact_person_phone',
+        'contact_person_email',
         'is_active',
     ];
 }

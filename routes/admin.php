@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\admin\GroupLocationController;
 use App\Http\Controllers\admin\LenderController;
 use App\Http\Controllers\admin\LenderFundingRequirementController;
@@ -8,8 +9,6 @@ use App\Http\Controllers\admin\LenderPayoffRequirementController;
 use App\Http\Controllers\admin\LocationController;
 use App\Http\Controllers\api\admin\AuthController;
 use Illuminate\Support\Facades\Route;
-
-Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -53,6 +52,14 @@ Route::middleware('auth:sanctum')->group(function () {
         });
 
         Route::controller(LocationController::class)->group(function () {
+            Route::get('/', 'index');
+            Route::post('/', 'store');
+        });
+    });
+
+    Route::prefix('customer')->group(function () {
+        Route::controller(CustomerController::class)->group(function () {
+            Route::get('/', 'index');
             Route::post('/', 'store');
         });
     });

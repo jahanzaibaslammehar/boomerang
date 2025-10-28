@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('group_location', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('contact_person__name')->nullable();
-            $table->string('contact_person__phone')->nullable();
-            $table->string('contact_person__email')->nullable();
+            $table->string('contact_person_name')->nullable();
+            $table->string('contact_person_phone')->nullable();
+            $table->string('contact_person_email')->nullable();
             $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();
