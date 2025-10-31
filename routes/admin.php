@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::controller(LenderController::class)->group(function () {
             // Route::get('/', 'index');
             Route::post('/', 'create');
-            // Route::get('/{lender}', 'show');
+            Route::get('/', 'get');
             // Route::put('/{lender}', 'update');
             // Route::delete('/{lender}', 'destroy');
         });

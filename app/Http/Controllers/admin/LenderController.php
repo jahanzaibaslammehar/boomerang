@@ -24,4 +24,13 @@ class LenderController extends Controller
             'data' => $lender
         ], 201);
     }
+
+    public function get(Request $request)
+    {
+        $lenders = $this->service->list();
+
+        return response()->json([
+            'data' => $lenders
+        ], 200);
+    }
 }
