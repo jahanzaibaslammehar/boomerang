@@ -28,22 +28,8 @@ return new class extends Migration
             $table->unsignedBigInteger('vehicle_type_id');
             $table->string('vin');
             $table->string('miles');
-
-
-            //when rebate toggle is onn
             $table->boolean('is_rebate')->default(false);
-            $table->text('rebate_description')->nullable();
-            $table->float('rebate_amount_1')->nullable();
-            $table->float('rebate_amount_2')->nullable();
-
-            //when trade toggle is onn
             $table->boolean('is_trade')->default(false);
-            $table->string('scc_account_number')->nullable();
-            $table->float('payoff_amount')->nullable();
-            $table->float('per_diem')->nullable();
-            $table->timestamp('date_20_days_payoff')->nullable();
-            $table->unsignedBigInteger('trade_lender')->nullable();
-
             $table->unsignedBigInteger('finance_lender');
             $table->unsignedBigInteger('rate_type_id');
             $table->float('buy_rate');

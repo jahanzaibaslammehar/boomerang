@@ -36,10 +36,26 @@ class CreateCustomerRequest extends FormRequest
             'vin' => 'required|string|max:50',
             'miles' => 'required|string|max:20',
             'is_rebate' => 'required|boolean',
-            'rebate_description' => 'nullable|string',
-            'rebate_amount_1' => 'nullable|numeric',
-            'rebate_amount_2' => 'nullable|numeric',
+
+            //when rebate is coming
+            'rebate_items' => 'required_with:is_rebate|array',
+            'rebate_items.*.rebate_description' => 'sometimes|nullable|required',
+            'rebate_items.*.rebate_amount_1' => 'sometimes|required|numeric',
+            'rebate_items.*.rebate_amount_2' => 'sometimes|required|numeric',
+
+
             'is_trade' => 'required|boolean',
+
+            //when trade is coming
+            'trade_items' => 'required_with:is_trade|array',
+            'trade_items.*.trade_vin' => 'sometimes|nullable|required|string|max:50',
+            'trade_items.*.scc_account_number' => 'sometimes|nullable|required|string|max:20',
+            'trade_items.*.payoff_amount' => 'sometimes|nullable|required|numeric',
+            'trade_items.*.per_diem' => 'sometimes|nullable|required|numeric',
+            'trade_items.*.date_20_days_payoff' => 'sometimes|nullable|required|date',
+            'trade_items.*.trade_lender_id' => 'sometimes|nullable|required|integer',
+
+
             'scc_account_number' => 'nullable|string|max:100',
             'payoff_amount' => 'nullable|numeric',
             'per_diem' => 'nullable|numeric',

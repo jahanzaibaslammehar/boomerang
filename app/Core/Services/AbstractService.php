@@ -30,6 +30,11 @@ class AbstractService implements AbstractServiceInterface
         return $this->repository->create($request);
     }
 
+    public function createMany(array $data): bool
+    {
+        return $this->repository->createMany($data);
+    }
+
     public function updateOrCreate($conditions, $request): Model
     {
         return $this->repository->updateOrCreate($conditions, $request);

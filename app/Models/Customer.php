@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Customer extends Model
 {
+    use SoftDeletes;
+    
     protected $table = 'customers';
     
     protected $fillable = [
@@ -23,16 +26,9 @@ class Customer extends Model
         'vin',
         'miles',
         'is_rebate',
-        'rebate_description',
-        'rebate_amount_1',
-        'rebate_amount_2',
         'is_trade',
-        'scc_account_number',
-        'payoff_amount',
-        'per_diem',
-        'date_20_days_payoff',
-        'trade_lender',
         'finance_lender',
+        'is_customer_tradein_vehicle',
         'rate_type_id',
         'buy_rate',
         'sell_rate',
@@ -44,5 +40,15 @@ class Customer extends Model
         'special_deal_proof_document',
         'down_payment',
     ];
+
+    public function rebates()
+    {
+        return $this->hasMany(CustomerRebate::class, 'customer_id');
+    }
+
+    public function trades()
+    {
+        return $this->hasMany(CustomerTrade::class, 'customer_id');
+    }
     
 }

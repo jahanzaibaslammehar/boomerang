@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\admin\CreateCustomerRequest;
 use App\Services\Admin\CustomerService;
 use Illuminate\Http\Request;
 
@@ -22,10 +23,9 @@ class CustomerController extends Controller
         ], 200);
     }
 
-    public function store(Request $request)
+    public function store(CreateCustomerRequest $request)
     {
-        $data = $request->all();
-        $customer = $this->service->create($data);
+        $customer = $this->service->create($request->validated());
         
         return response()->json([
             'message' => 'Customer created successfully',
